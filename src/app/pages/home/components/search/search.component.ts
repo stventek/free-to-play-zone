@@ -18,7 +18,8 @@ export class SearchComponent {
 
   onSubmit(){
     if (this.myForm.valid) {
-      this.gameInfoService.searchGameInfo(this.myForm.value)
+      this.gameInfoService.setTitle(this.myForm.value.title);
+      this.gameInfoService.refreshGameInfo();
     }
   }
 }

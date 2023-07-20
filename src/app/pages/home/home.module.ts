@@ -6,13 +6,15 @@ import { GamelistComponent } from './components/gamelist/gamelist.component';
 import { GameTileComponent } from './components/game-tile/game-tile.component';
 import { SearchComponent } from './components/search/search.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FiltersControlsComponent } from './components/filters-controls/filters-controls.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     GamelistComponent,
     GameTileComponent,
-    SearchComponent
+    SearchComponent,
+    FiltersControlsComponent
   ],
   imports: [
     CommonModule,

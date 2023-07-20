@@ -10,6 +10,6 @@ export class HomeComponent {
   constructor(private gameInfoService: GameInfoService){}
 
   ngOnInit(){
-    this.gameInfoService.fetchGameInfo();
+    this.gameInfoService.refreshGameInfo();
   }
 }
