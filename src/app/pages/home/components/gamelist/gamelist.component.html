@@ -1,0 +1,7 @@
+<div *ngIf="gamelist$ | async as games; else loading">
+      <app-game-tile *ngFor="let gameInfo of games" [gameInfo]="gameInfo"/>
+</div>
+<ng-template #loading>
+    <p>Loading games...</p>
+</ng-template>
+  
