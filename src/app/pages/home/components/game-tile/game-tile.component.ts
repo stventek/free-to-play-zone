@@ -4,7 +4,7 @@ import { GameInfo } from '../../models/game.model';
 @Component({
   selector: 'app-game-tile',
   templateUrl: './game-tile.component.html',
-  styleUrls: ['./game-tile.component.css']
+  styleUrls: ['./game-tile.component.scss']
 })
 export class GameTileComponent {
   @Input() gameInfo!: GameInfo;

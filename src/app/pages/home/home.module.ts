@@ -7,6 +7,7 @@ import { GameTileComponent } from './components/game-tile/game-tile.component';
 import { SearchComponent } from './components/search/search.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FiltersControlsComponent } from './components/filters-controls/filters-controls.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FiltersControlsComponent } from './components/filters-controls/filters-
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    RouterModule 
   ],
   exports: [HomeComponent],
   providers: [GameInfoService]

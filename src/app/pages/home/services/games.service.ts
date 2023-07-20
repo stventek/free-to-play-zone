@@ -25,7 +25,7 @@ export class GameInfoService {
       if (this.filters) {
           for (const key in this.filters) {
               if (this.filters.hasOwnProperty(key)) {
-                  params = params.set(key, this.filters[key]);
+                if(this.filters[key]) params = params.set(key, this.filters[key]);
               }
           }
       }

@@ -1,8 +1,7 @@
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-    <div>
-      <label for="email">Title:</label>
-      <input type="text" id="title" formControlName="title">
-    </div>
-    <button type="submit">Submit</button>
-</form>
-  
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="row g-3 align-items-center">
+  <div class="col-auto"><label for="email">Title:</label></div>
+  <div class="col-auto"><input type="text" id="title" formControlName="title" class="form-control"></div>
+  <div class="col-auto"><button type="submit" class="btn btn-primary">Search</button></div>
+</form>  
+
+

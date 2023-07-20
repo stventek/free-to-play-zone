@@ -1,8 +1,8 @@
 <form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
-    <button type="submit">Apply Filters</button>
+    <button type="submit" class="btn btn-primary">Apply Filters</button>
     <div>
-      <label for="category">Category:</label>
-      <select id="category" formControlName="category">
+      <label for="category" class="form-label">Category:</label>
+      <select class="form-select" id="category" formControlName="category">
         <option value="">Select a category</option>
         <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
         <!-- Add more options as needed -->
@@ -10,8 +10,8 @@
     </div>
   
     <div>
-      <label for="platform">Platform:</label>
-      <select id="platform" formControlName="platform">
+      <label for="platform" class="form-label">Platform:</label>
+      <select class="form-select" id="platform" formControlName="platform">
         <option value="">Select a platform</option>
         <option value="pc">PC (Windows)</option>
         <option value="browser">Web browser</option>

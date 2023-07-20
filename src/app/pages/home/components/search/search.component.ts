@@ -12,7 +12,7 @@ export class SearchComponent {
 
   constructor(private formBuilder: FormBuilder, private gameInfoService: GameInfoService) {
     this.myForm = this.formBuilder.group({
-      title: ['', Validators.required],
+      title: [''],
     });
   }
 
