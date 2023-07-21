@@ -8,6 +8,7 @@ import { SearchComponent } from './components/search/search.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FiltersControlsComponent } from './components/filters-controls/filters-controls.component';
 import { RouterModule } from '@angular/router';
+import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule 
+    RouterModule,
+    NgbTypeaheadModule
   ],
   exports: [HomeComponent],
   providers: [GameInfoService]

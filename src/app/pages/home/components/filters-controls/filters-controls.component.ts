@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GameInfoService } from '../../services/games.service';
+import { Observable, OperatorFunction, debounceTime, distinctUntilChanged, map } from 'rxjs';
 
 @Component({
   selector: 'app-filters-controls',
@@ -9,6 +10,15 @@ import { GameInfoService } from '../../services/games.service';
 })
 export class FiltersControlsComponent {
   filterForm: FormGroup;
+  
+  search: OperatorFunction<string, readonly string[]> = (text$: Observable<string>) =>
+    text$.pipe(
+      debounceTime(200),
+      distinctUntilChanged(),
+      map((term) =>
+        term.length < 2 ? [] : this.categories.filter((v) => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10),
+      ),
+    );
 
   categories: string[] = [
     'mmorpg', 'shooter', 'strategy', 'moba', 'racing', 'sports', 'social', 'sandbox',
