@@ -6,7 +6,7 @@ import { GameInfo } from '../models/game.interface';
 
 @Injectable()
 export class GameInfoService {
-    private gameInfoSource = new BehaviorSubject<GameInfo[] | null>(null);
+    gameInfoSource = new BehaviorSubject<GameInfo[] | null>(null);
     gameInfo$ = this.gameInfoSource.asObservable();
 
     title: string | undefined;

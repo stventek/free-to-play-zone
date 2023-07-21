@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FiltersControlsComponent } from './components/filters-controls/filters-controls.component';
 import { RouterModule } from '@angular/router';
 import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
-    NgbTypeaheadModule
+    NgbTypeaheadModule,
+    InfiniteScrollModule
   ],
   exports: [HomeComponent],
   providers: [GameInfoService]

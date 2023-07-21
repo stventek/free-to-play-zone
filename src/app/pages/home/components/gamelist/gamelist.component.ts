@@ -11,8 +11,16 @@ import { GameInfo } from '../../models/game.interface';
 export class GamelistComponent {
 
   gamelist$: Observable<GameInfo[] | null>
+  batch = 15;
 
   constructor(private gameInfoService: GameInfoService){
     this.gamelist$ = this.gameInfoService.gameInfo$;
+  }
+
+  onScroll(){
+    const gameInfo = this.gameInfoService.gameInfoSource.getValue();
+    if(gameInfo && gameInfo.length > this.batch + 15){
+      this.batch += 15;
+    }
   }
 }

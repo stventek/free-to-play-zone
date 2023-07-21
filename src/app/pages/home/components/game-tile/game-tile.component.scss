@@ -4,20 +4,11 @@
   text-decoration: none;
 }
 
-.card-text-custom {
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: normal;
-  height: 6rem;
-}
-
 .custom-card {
   width: 18rem;
+  height: 25rem;
 }
 
 .card-body {
-  background-color: #2F353B;
+  background-image: linear-gradient(135deg, #2F353B, #435161);
 }

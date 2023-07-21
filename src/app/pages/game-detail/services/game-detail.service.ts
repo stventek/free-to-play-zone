@@ -1,6 +1,6 @@
 // shared.service.ts
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { GameDetail } from '../models/game-detail.interface';
 
@@ -11,15 +11,22 @@ export class GameDetailService {
 
     title: string | undefined;
     filters: any;
-
+    private httpSubscription: Subscription | undefined;
+    
     constructor( private http: HttpClient) { }
   
-    setGameDetail(gameDetail: GameDetail) {
+    setGameDetail(gameDetail: GameDetail | null) {
       this.gameDetailSource.next(gameDetail);
     }
 
+    ngOnDestroy() {
+      if (this.httpSubscription) {
+        this.httpSubscription.unsubscribe();
+      }
+    }
+    
     refreshGameDetail(id: string){
-      this.http.get<GameDetail>('https://free-to-play-games-database.p.rapidapi.com/api/game', {
+      this.httpSubscription = this.http.get<GameDetail>('https://free-to-play-games-database.p.rapidapi.com/api/game', {
         headers: {
         'X-RapidAPI-Key': 'c34e11ff9fmshad54035375d42a4p14e620jsn52c8f3275345',
         'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
