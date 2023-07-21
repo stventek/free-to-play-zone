@@ -1,6 +1,6 @@
 <div *ngIf="gamelist$ | async as games; else loading">
     <div class="row">
-        <app-game-tile *ngFor="let gameInfo of games" [gameInfo]="gameInfo" class="d-flex justify-content-center col col-xxl-4 col-lg-6 col-md-12 col-sm-12 g-3"></app-game-tile>
+        <app-game-tile *ngFor="let gameInfo of games" [gameInfo]="gameInfo" class="col-auto g-2"></app-game-tile>
     </div>
 </div>
 <ng-template #loading>

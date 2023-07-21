@@ -1,0 +1,45 @@
+<div *ngIf="(gameDetail$ | async) as gameDetail">
+  <div class="bg-custom" [style.background-image]="'url(' + gameDetail.screenshots[0].image + ')'">
+    <div class="c-grad"></div>
+  </div>
+  <div class="container mt-4">
+      <h2>{{ gameDetail.title }}</h2>
+      <img [src]="gameDetail.thumbnail" alt="Game Thumbnail" class="img-thumbnail mb-3">
+  
+      <p>{{ gameDetail.short_description }}</p>
+  
+      <p><strong>Status:</strong> {{ gameDetail.status }}</p>
+      <p><strong>Genre:</strong> {{ gameDetail.genre }}</p>
+      <p><strong>Platform:</strong> {{ gameDetail.platform }}</p>
+      <p><strong>Publisher:</strong> {{ gameDetail.publisher }}</p>
+      <p><strong>Developer:</strong> {{ gameDetail.developer }}</p>
+      <p><strong>Release Date:</strong> {{ gameDetail.release_date }}</p>
+      <hr>
+      <h4>About {{gameDetail.title}}</h4>
+      <p>{{ gameDetail.description }}</p>
+      <hr>
+      <h4>Screenshots:</h4>
+      <div class="row">
+        <div class="col-md-3 mb-3" *ngFor="let screenshot of gameDetail.screenshots">
+          <img [src]="screenshot.image" alt="Screenshot" class="img-fluid">
+        </div>
+      </div>
+      <hr>
+      <h4>Minimum System Requirements:</h4>
+      <ul>
+        <li><strong>OS:</strong> {{ gameDetail.minimum_system_requirements.os }}</li>
+        <li><strong>Processor:</strong> {{ gameDetail.minimum_system_requirements.processor }}</li>
+        <li><strong>Memory:</strong> {{ gameDetail.minimum_system_requirements.memory }}</li>
+        <li><strong>Graphics:</strong> {{ gameDetail.minimum_system_requirements.graphics }}</li>
+        <li><strong>Storage:</strong> {{ gameDetail.minimum_system_requirements.storage }}</li>
+      </ul>
+      <hr>
+      <p>
+        <strong>Game URL: </strong> <a [href]="gameDetail.game_url" target="_blank">{{ gameDetail.title }}</a>
+      </p>
+      <p>
+        <strong>FreeToGame Profile URL: </strong> <a [href]="gameDetail.freetogame_profile_url" target="_blank">FreeToGame Profile</a>
+      </p>
+    </div>
+    
+</div>
