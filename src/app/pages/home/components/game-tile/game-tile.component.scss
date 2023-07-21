@@ -4,10 +4,6 @@
   text-decoration: none;
 }
 
-.game-tile-a:hover {
-  opacity: 0.8;
-}
-
 .card-text-custom {
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -19,9 +15,9 @@
 }
 
 .custom-card {
-  border-radius: 0;
+  width: 18rem;
 }
 
-.card-img-custom {
-  border-radius: 0;
+.card-body {
+  background-color: #2F353B;
 }

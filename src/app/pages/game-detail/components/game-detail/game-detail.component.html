@@ -3,28 +3,30 @@
     <div class="c-grad"></div>
   </div>
   <div class="container mt-4">
-      <h2>{{ gameDetail.title }}</h2>
-      <img [src]="gameDetail.thumbnail" alt="Game Thumbnail" class="img-thumbnail mb-3">
+      <h1 class="display-1">{{ gameDetail.title }}</h1>
+      <img [src]="gameDetail.thumbnail" alt="Game Thumbnail" class="img-fluid shadow mb-3">
   
-      <p>{{ gameDetail.short_description }}</p>
+      <p class="lead">{{ gameDetail.short_description }}</p>
   
-      <p><strong>Status:</strong> {{ gameDetail.status }}</p>
-      <p><strong>Genre:</strong> {{ gameDetail.genre }}</p>
-      <p><strong>Platform:</strong> {{ gameDetail.platform }}</p>
-      <p><strong>Publisher:</strong> {{ gameDetail.publisher }}</p>
-      <p><strong>Developer:</strong> {{ gameDetail.developer }}</p>
-      <p><strong>Release Date:</strong> {{ gameDetail.release_date }}</p>
-      <hr>
+      <ul>
+        <li><strong>Status:</strong> {{ gameDetail.status }}</li>
+        <li><strong>Genre:</strong> {{ gameDetail.genre }}</li>
+        <li><strong>Platform:</strong> {{ gameDetail.platform }}</li>
+        <li><strong>Publisher:</strong> {{ gameDetail.publisher }}</li>
+        <li><strong>Developer:</strong> {{ gameDetail.developer }}</li>
+        <li><strong>Release Date:</strong> {{ gameDetail.release_date }}</li>
+      </ul>
+      <hr class="m-4">
       <h4>About {{gameDetail.title}}</h4>
       <p>{{ gameDetail.description }}</p>
-      <hr>
+      <hr class="m-4">
       <h4>Screenshots:</h4>
       <div class="row">
-        <div class="col-md-3 mb-3" *ngFor="let screenshot of gameDetail.screenshots">
-          <img [src]="screenshot.image" alt="Screenshot" class="img-fluid">
+        <div class="col-md-4 mb-3 image-container" *ngFor="let screenshot of gameDetail.screenshots">
+          <img [src]="screenshot.image" alt="Screenshot" class="img-fluid shadow">
         </div>
       </div>
-      <hr>
+      <hr class="m-4">
       <h4>Minimum System Requirements:</h4>
       <ul>
         <li><strong>OS:</strong> {{ gameDetail.minimum_system_requirements.os }}</li>
@@ -33,7 +35,7 @@
         <li><strong>Graphics:</strong> {{ gameDetail.minimum_system_requirements.graphics }}</li>
         <li><strong>Storage:</strong> {{ gameDetail.minimum_system_requirements.storage }}</li>
       </ul>
-      <hr>
+      <hr class="m-4">
       <p>
         <strong>Game URL: </strong> <a [href]="gameDetail.game_url" target="_blank">{{ gameDetail.title }}</a>
       </p>

@@ -1,17 +1,15 @@
 <div>
     <a [routerLink]="'/game/' + gameInfo.id" class="game-tile-a">
-        <div class="card custom-card" style="width: 18rem;">
-            <img [src]="gameInfo.thumbnail" class="card-img-top card-img-custom" alt="...">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <h5 class="card-title">{{gameInfo.title}}</h5>
-                        <p class="card-text  card-text-custom text-truncate">{{gameInfo.short_description}}</p>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="badge bg-secondary ms-1">{{gameInfo.genre}}</span>
-                        <span class="badge bg-secondary ms-1">{{gameInfo.platform}}</span>
-                    </li>
-                </ul>
+        <div class="card custom-card rounded-0">
+            <img [src]="gameInfo.thumbnail" class="card-img-top rounded-0" alt="..." loading="lazy"/>
+            <div class="card-body card-body-bg">
+                <h5 class="card-title">{{gameInfo.title}}</h5>
+                <p class="card-text  card-text-custom text-truncate">{{gameInfo.short_description}}</p>
+                <div>
+                    <span class="badge bg-secondary ms-1">{{gameInfo.genre}}</span>
+                    <span class="badge bg-secondary ms-1">{{gameInfo.platform}}</span>
+                </div>
+            </div>
         </div>
     </a>
 </div>

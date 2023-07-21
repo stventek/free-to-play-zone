@@ -1,0 +1,22 @@
+
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+
+//$card-border-color: white;
+// Tokyo Night Color Palette
+/* $body-bg-dark: #273549;
+
+
+$theme-colors: map-merge($theme-colors, (
+  "light":      #0b1c03,
+  "dark":       #201500,
+  "primary":    #aaf736,
+  "secondary":  #c1e9ff,
+  "info":       #8cbaf2,
+  "success":    #18d881,
+  "warning":    #f9b267,
+  "danger":     #eb746f
+));
+ */
+      
+@import 'node_modules/bootstrap/scss/bootstrap.scss';

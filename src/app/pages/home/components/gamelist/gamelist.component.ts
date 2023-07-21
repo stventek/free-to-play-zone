@@ -6,7 +6,7 @@ import { GameInfo } from '../../models/game.interface';
 @Component({
   selector: 'app-gamelist',
   templateUrl: './gamelist.component.html',
-  styleUrls: ['./gamelist.component.css']
+  styleUrls: ['./gamelist.component.scss']
 })
 export class GamelistComponent {
 
