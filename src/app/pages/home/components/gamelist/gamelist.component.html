@@ -1,5 +1,5 @@
 <div *ngIf="gamelist$ | async as games; else loading">
-    <div class="row">
+    <div class="row justify-content-center">
         <app-game-tile *ngFor="let gameInfo of games.slice(0, batch)" [gameInfo]="gameInfo" class="col-auto g-3 shadow gametile"></app-game-tile>
     </div>
   <div infinite-scroll [infiniteScrollThrottle]="1000" (scrolled)="onScroll()"></div>

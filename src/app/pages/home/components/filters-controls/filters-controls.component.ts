@@ -6,7 +6,7 @@ import { Observable, OperatorFunction, debounceTime, distinctUntilChanged, map }
 @Component({
   selector: 'app-filters-controls',
   templateUrl: './filters-controls.component.html',
-  styleUrls: ['./filters-controls.component.css']
+  styleUrls: ['./filters-controls.component.scss']
 })
 export class FiltersControlsComponent {
   filterForm: FormGroup;

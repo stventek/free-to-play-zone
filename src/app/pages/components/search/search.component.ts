@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { GameInfoService } from '../../services/games.service';
+import { GameInfoService } from '../../home/services/games.service';
+
 
 @Component({
   selector: 'app-search',

@@ -11,7 +11,7 @@ import { GameInfo } from '../../models/game.interface';
 export class GamelistComponent {
 
   gamelist$: Observable<GameInfo[] | null>
-  batch = 15;
+  batch = 20;
 
   constructor(private gameInfoService: GameInfoService){
     this.gamelist$ = this.gameInfoService.gameInfo$;
