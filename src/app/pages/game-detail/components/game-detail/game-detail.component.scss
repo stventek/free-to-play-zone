@@ -23,13 +23,11 @@ $bg-color : #212529;
     background-repeat: no-repeat;
   }
 
-.image-container {
-  display: inline-block;
-  position: relative;
-}
-
 .image-container img {
   transition: transform 0.3s ease;
+  height: 186px;
+  width: 400px;
+  object-fit: cover;
 }
 
 .image-container:hover img {
