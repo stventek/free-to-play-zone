@@ -1,0 +1,18 @@
+.custom-card-img {
+    height: 10.125rem;
+    object-fit: cover;
+}
+
+.custom-card {
+    width: 18rem;
+    height: 25rem;
+}
+
+.card-body {
+    background-image: linear-gradient(135deg, #2F353B, #435161);
+}
+
+svg {
+    stroke: transparent;
+    stroke-width: 0px;
+}

@@ -1,14 +1,7 @@
 /* game-card.component.scss */
+@import '../../styles.common.scss';
 
 .game-tile-a {
   text-decoration: none;
 }
 
-.custom-card {
-  width: 18rem;
-  height: 25rem;
-}
-
-.card-body {
-  background-image: linear-gradient(135deg, #2F353B, #435161);
-}

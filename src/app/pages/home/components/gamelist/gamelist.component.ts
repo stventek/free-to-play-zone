@@ -12,6 +12,7 @@ export class GamelistComponent {
 
   gamelist$: Observable<GameInfo[] | null>
   batch = 20;
+  placeholderTiles = Array(this.batch);
 
   constructor(private gameInfoService: GameInfoService){
     this.gamelist$ = this.gameInfoService.gameInfo$;
