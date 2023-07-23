@@ -1,15 +1,30 @@
-<form [formGroup]="filterForm" (ngSubmit)="applyFilters()" class="row align-items-end">
+<form
+  [formGroup]="filterForm"
+  (ngSubmit)="applyFilters()"
+  class="row align-items-end">
   <div class="col-auto">
     <label for="category" class="form-label">Category:</label>
-    <input type="text" id="category"  [ngbTypeahead]="search" class="custom-action-input form-control form-control-sm" formControlName="category">
+    <input
+      type="text"
+      id="category"
+      [ngbTypeahead]="search"
+      class="custom-action-input form-control form-control-sm"
+      formControlName="category" />
   </div>
   <div class="col-auto">
     <label for="platform" class="form-label">Platform:</label>
-    <select class="form-select form-select-sm custom-action-input" id="platform" formControlName="platform">
+    <select
+      class="form-select form-select-sm custom-action-input"
+      id="platform"
+      formControlName="platform">
       <option value="">Select a platform</option>
       <option value="pc">PC (Windows)</option>
       <option value="browser">Web browser</option>
     </select>
   </div>
-  <div class="col-sm-12 col-md-auto mt-3 m-md-0"><button type="submit" class="d-block filter-submit btn btn-sm btn-light">FILTER</button></div>
+  <div class="col-sm-12 col-md-auto mt-3 m-md-0">
+    <button type="submit" class="d-block filter-submit btn btn-sm btn-light">
+      FILTER
+    </button>
+  </div>
 </form>

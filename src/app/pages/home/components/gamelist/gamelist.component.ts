@@ -6,21 +6,20 @@ import { GameInfo } from '../../models/game.interface';
 @Component({
   selector: 'app-gamelist',
   templateUrl: './gamelist.component.html',
-  styleUrls: ['./gamelist.component.scss']
+  styleUrls: ['./gamelist.component.scss'],
 })
 export class GamelistComponent {
-
-  gamelist$: Observable<GameInfo[] | null>
+  gamelist$: Observable<GameInfo[] | null>;
   batch = 20;
   placeholderTiles = Array(this.batch);
 
-  constructor(private gameInfoService: GameInfoService){
+  constructor(private gameInfoService: GameInfoService) {
     this.gamelist$ = this.gameInfoService.gameInfo$;
   }
 
-  onScroll(){
+  onScroll() {
     const gameInfo = this.gameInfoService.gameInfoSource.getValue();
-    if(gameInfo && gameInfo.length > this.batch + 15){
+    if (gameInfo && gameInfo.length > this.batch + 15) {
       this.batch += 20;
     }
   }

@@ -1,17 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-pages',
   templateUrl: './pages.component.html',
-  styleUrls: ['./pages.component.scss']
+  styleUrls: ['./pages.component.scss'],
 })
-export class PagesComponent {
-  isGameDetailRoute: boolean = false;
+export class PagesComponent implements OnInit, OnDestroy {
+  isGameDetailRoute = false;
   private routerSubscription!: Subscription;
 
-  constructor(public router: Router) { }
+  constructor(public router: Router) {}
 
   ngOnInit(): void {
     this.routerSubscription = this.router.events.subscribe(() => {
@@ -20,7 +20,6 @@ export class PagesComponent {
   }
 
   ngOnDestroy(): void {
-    // Unsubscribe from the router events to avoid memory leaks
     this.routerSubscription.unsubscribe();
   }
 }

@@ -1,47 +1,74 @@
-<div *ngIf="(gameDetail$ | async) as gameDetail">
-  <div class="bg-custom" [style.background-image]="'url(' + gameDetail.screenshots[0].image + ')'">
+<div *ngIf="gameDetail$ | async as gameDetail">
+  <div
+    class="bg-custom"
+    [style.background-image]="'url(' + gameDetail.screenshots[0].image + ')'">
     <div class="c-grad"></div>
   </div>
   <div class="container mt-4">
-      <h1 class="display-1">{{ gameDetail.title }}</h1>
-      <img [src]="gameDetail.thumbnail" alt="Game Thumbnail" class="img-fluid shadow mb-3">
-  
-      <p class="lead">{{ gameDetail.short_description }}</p>
-  
-      <ul>
-        <li><strong>Status:</strong> {{ gameDetail.status }}</li>
-        <li><strong>Genre:</strong> {{ gameDetail.genre }}</li>
-        <li><strong>Platform:</strong> {{ gameDetail.platform }}</li>
-        <li><strong>Publisher:</strong> {{ gameDetail.publisher }}</li>
-        <li><strong>Developer:</strong> {{ gameDetail.developer }}</li>
-        <li><strong>Release Date:</strong> {{ gameDetail.release_date }}</li>
-      </ul>
-      <hr class="m-4">
-      <h4>About {{gameDetail.title}}</h4>
-      <p>{{ gameDetail.description }}</p>
-      <hr class="m-4">
-      <h4>Screenshots:</h4>
-      <div class="row">
-        <div class="col-auto mb-3 image-container" *ngFor="let screenshot of gameDetail.screenshots">
-          <img [src]="screenshot.image" alt="Screenshot" class="img-thumbnail shadow">
-        </div>
+    <h1 class="display-1">{{ gameDetail.title }}</h1>
+    <img
+      [src]="gameDetail.thumbnail"
+      alt="Game Thumbnail"
+      class="img-fluid shadow mb-3" />
+
+    <p class="lead">{{ gameDetail.short_description }}</p>
+
+    <ul>
+      <li><strong>Status:</strong> {{ gameDetail.status }}</li>
+      <li><strong>Genre:</strong> {{ gameDetail.genre }}</li>
+      <li><strong>Platform:</strong> {{ gameDetail.platform }}</li>
+      <li><strong>Publisher:</strong> {{ gameDetail.publisher }}</li>
+      <li><strong>Developer:</strong> {{ gameDetail.developer }}</li>
+      <li><strong>Release Date:</strong> {{ gameDetail.release_date }}</li>
+    </ul>
+    <hr class="m-4" />
+    <h4>About {{ gameDetail.title }}</h4>
+    <p>{{ gameDetail.description }}</p>
+    <hr class="m-4" />
+    <h4>Screenshots:</h4>
+    <div class="row">
+      <div
+        class="col-auto mb-3 image-container"
+        *ngFor="let screenshot of gameDetail.screenshots">
+        <img
+          [src]="screenshot.image"
+          alt="Screenshot"
+          class="img-thumbnail shadow" />
       </div>
-      <hr class="m-4">
-      <h4>Minimum System Requirements:</h4>
-      <ul>
-        <li><strong>OS:</strong> {{ gameDetail.minimum_system_requirements.os }}</li>
-        <li><strong>Processor:</strong> {{ gameDetail.minimum_system_requirements.processor }}</li>
-        <li><strong>Memory:</strong> {{ gameDetail.minimum_system_requirements.memory }}</li>
-        <li><strong>Graphics:</strong> {{ gameDetail.minimum_system_requirements.graphics }}</li>
-        <li><strong>Storage:</strong> {{ gameDetail.minimum_system_requirements.storage }}</li>
-      </ul>
-      <hr class="m-4">
-      <p>
-        <strong>Game URL: </strong> <a [href]="gameDetail.game_url" target="_blank">{{ gameDetail.title }}</a>
-      </p>
-      <p>
-        <strong>FreeToGame Profile URL: </strong> <a [href]="gameDetail.freetogame_profile_url" target="_blank">FreeToGame Profile</a>
-      </p>
     </div>
-    
+    <hr class="m-4" />
+    <h4>Minimum System Requirements:</h4>
+    <ul>
+      <li>
+        <strong>OS:</strong> {{ gameDetail.minimum_system_requirements.os }}
+      </li>
+      <li>
+        <strong>Processor:</strong>
+        {{ gameDetail.minimum_system_requirements.processor }}
+      </li>
+      <li>
+        <strong>Memory:</strong>
+        {{ gameDetail.minimum_system_requirements.memory }}
+      </li>
+      <li>
+        <strong>Graphics:</strong>
+        {{ gameDetail.minimum_system_requirements.graphics }}
+      </li>
+      <li>
+        <strong>Storage:</strong>
+        {{ gameDetail.minimum_system_requirements.storage }}
+      </li>
+    </ul>
+    <hr class="m-4" />
+    <p>
+      <strong>Game URL: </strong>
+      <a [href]="gameDetail.game_url" target="_blank">{{ gameDetail.title }}</a>
+    </p>
+    <p>
+      <strong>FreeToGame Profile URL: </strong>
+      <a [href]="gameDetail.freetogame_profile_url" target="_blank"
+        >FreeToGame Profile</a
+      >
+    </p>
+  </div>
 </div>

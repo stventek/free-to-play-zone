@@ -15,16 +15,16 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     HomeComponent,
     GamelistComponent,
     GameTileComponent,
-    FiltersControlsComponent
+    FiltersControlsComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
     NgbTypeaheadModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
   ],
   exports: [HomeComponent],
-  providers: [GameInfoService]
+  providers: [GameInfoService],
 })
-export class HomeModule { }
+export class HomeModule {}

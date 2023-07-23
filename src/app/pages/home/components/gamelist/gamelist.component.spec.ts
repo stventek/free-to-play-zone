@@ -9,7 +9,7 @@ describe('GamelistComponent', () => {
   let component: GamelistComponent;
   let fixture: ComponentFixture<GamelistComponent>;
   let gameInfoService: GameInfoService;
-  let mockData : GameInfo[] = Array(100).fill({
+  const mockData: GameInfo[] = Array(100).fill({
     id: 1,
     title: '',
     thumbnail: '',
@@ -23,13 +23,13 @@ describe('GamelistComponent', () => {
     freetogame_profile_url: '',
   });
   let de: DebugElement;
-  
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [GamelistComponent],
       providers: [GameInfoService],
       imports: [HttpClientModule],
-      schemas: [NO_ERRORS_SCHEMA]
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
     fixture = TestBed.createComponent(GamelistComponent);
     de = fixture.debugElement;

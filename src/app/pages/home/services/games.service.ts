@@ -1,4 +1,3 @@
-// shared.service.ts
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -7,49 +6,52 @@ import { enviroment } from 'src/enviroments/enviroment';
 
 @Injectable()
 export class GameInfoService {
-    gameInfoSource = new BehaviorSubject<GameInfo[] | null>(null);
-    gameInfo$ = this.gameInfoSource.asObservable();
+  gameInfoSource = new BehaviorSubject<GameInfo[] | null>(null);
+  gameInfo$ = this.gameInfoSource.asObservable();
 
-    title: string | undefined;
-    filters: any;
+  title: string | undefined;
+  filters: any;
 
-    constructor( private http: HttpClient) { }
-  
-    setGameInfo(gameInfo: GameInfo[]) {
-      this.gameInfoSource.next(gameInfo);
+  constructor(private http: HttpClient) {}
+
+  setGameInfo(gameInfo: GameInfo[]) {
+    this.gameInfoSource.next(gameInfo);
+  }
+
+  refreshGameInfo() {
+    let params = new HttpParams();
+
+    if (this.filters) {
+      for (const key in this.filters) {
+        if (Object.prototype.hasOwnProperty.call(this.filters, key)) {
+          if (this.filters[key]) params = params.set(key, this.filters[key]);
+        }
+      }
     }
 
-    refreshGameInfo(){
-      // if(title) TODO
-      let params = new HttpParams();
-
-      if (this.filters) {
-          for (const key in this.filters) {
-              if (this.filters.hasOwnProperty(key)) {
-                if(this.filters[key]) params = params.set(key, this.filters[key]);
-              }
-          }
-      }
-
-      this.http.get<GameInfo[]>(enviroment.apiBase + 'api/games', {
+    this.http
+      .get<GameInfo[]>(enviroment.apiBase + 'api/games', {
         headers: {
-        'X-RapidAPI-Key': enviroment.xRapidAPIKey,
-        'X-RapidAPI-Host':  enviroment.xRapidAPIHost
+          'X-RapidAPI-Key': enviroment.xRapidAPIKey,
+          'X-RapidAPI-Host': enviroment.xRapidAPIHost,
         },
-        params
-      }).subscribe( gameInfo => {
-        if(this.title) {
-          gameInfo = gameInfo.filter((game) => game.title.toLowerCase().includes(this.title!.toLowerCase()));
+        params,
+      })
+      .subscribe(gameInfo => {
+        if (this.title) {
+          gameInfo = gameInfo.filter(game =>
+            game.title.toLowerCase().includes(this.title!.toLowerCase())
+          );
         }
         this.setGameInfo(gameInfo);
-      })
-    }
+      });
+  }
 
-    applyFilters(filters: any){
-      this.filters = filters;
-    }
+  applyFilters(filters: any) {
+    this.filters = filters;
+  }
 
-    setTitle(title: string){
-      this.title = title;
-    }
+  setTitle(title: string) {
+    this.title = title;
+  }
 }

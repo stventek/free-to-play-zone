@@ -10,7 +10,7 @@ describe('GameTileComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [GameTileComponent],
-      imports: [RouterTestingModule]
+      imports: [RouterTestingModule],
     });
     fixture = TestBed.createComponent(GameTileComponent);
     component = fixture.componentInstance;
@@ -25,8 +25,8 @@ describe('GameTileComponent', () => {
       publisher: '',
       developer: '',
       release_date: '',
-      freetogame_profile_url: ''
-    }
+      freetogame_profile_url: '',
+    };
     fixture.detectChanges();
   });
 

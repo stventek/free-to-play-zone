@@ -1,4 +1,9 @@
-import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
+import {
+  ComponentFixture,
+  TestBed,
+  fakeAsync,
+  tick,
+} from '@angular/core/testing';
 
 import { SearchComponent } from './search.component';
 import { DebugElement } from '@angular/core';
@@ -16,7 +21,7 @@ describe('SearchComponent', () => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule, HttpClientModule],
       declarations: [SearchComponent],
-      providers: [GameInfoService, FormBuilder]
+      providers: [GameInfoService, FormBuilder],
     });
     fixture = TestBed.createComponent(SearchComponent);
     de = fixture.debugElement;
@@ -29,20 +34,16 @@ describe('SearchComponent', () => {
     expect(component).toBeTruthy();
   });
 
-
   it('should set title and refresh game info when form is valid', fakeAsync(() => {
     spyOn(gameInfoService, 'setTitle');
     spyOn(gameInfoService, 'refreshGameInfo');
-  
-    // Set up form controls with valid values
+
     component.myForm.controls['title'].setValue('overwatch');
-  
-    // Call the applyFilters method
+
     component.onSubmit();
-  
-    // Simulate the debounceTime period (200ms)
+
     tick(200);
-  
+
     expect(gameInfoService.setTitle).toHaveBeenCalledWith('overwatch');
     expect(gameInfoService.refreshGameInfo).toHaveBeenCalled();
   }));

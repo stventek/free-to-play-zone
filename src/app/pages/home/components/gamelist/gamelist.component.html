@@ -1,18 +1,37 @@
 <div *ngIf="gamelist$ | async as games; else loading">
-    <div class="row justify-content-center">
-        <app-game-tile *ngFor="let gameInfo of games.slice(0, batch)" [gameInfo]="gameInfo" class="col-auto g-3 shadow gametile"></app-game-tile>
-    </div>
-  <div infinite-scroll [infiniteScrollThrottle]="1000" (scrolled)="onScroll()"></div>
+  <div class="row justify-content-center">
+    <app-game-tile
+      *ngFor="let gameInfo of games.slice(0, batch)"
+      [gameInfo]="gameInfo"
+      class="col-auto g-3 shadow gametile"></app-game-tile>
+  </div>
+  <div
+    infinite-scroll
+    [infiniteScrollThrottle]="1000"
+    (scrolled)="onScroll()"></div>
 </div>
 <ng-template #loading>
   <div class="row justify-content-center">
-    <div *ngFor="let _ of placeholderTiles" class="col-auto g-3 shadow gametile">
+    <div
+      *ngFor="let _ of placeholderTiles"
+      class="col-auto g-3 shadow gametile">
       <div class="card custom-card rounded-0" aria-hidden="true">
-        <svg class="bd-placeholder-img card-img-top rounded-0 custom-card-img" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <svg
+          class="bd-placeholder-img card-img-top rounded-0 custom-card-img"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Placeholder: Image cap"
+          preserveAspectRatio="xMidYMid slice"
+          focusable="false">
           <title>Placeholder</title>
           <rect width="100%" height="100%" fill="#868e96"></rect>
-          <text x="50%" y="50%" fill="#dee2e6" text-anchor="middle" alignment-baseline="middle"></text>
-        </svg>        
+          <text
+            x="50%"
+            y="50%"
+            fill="#dee2e6"
+            text-anchor="middle"
+            alignment-baseline="middle"></text>
+        </svg>
         <div class="card-body d-flex flex-column">
           <h5 class="card-title placeholder-glow">
             <span class="placeholder col-6"></span>

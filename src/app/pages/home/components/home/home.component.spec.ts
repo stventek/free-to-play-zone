@@ -11,8 +11,10 @@ describe('HomeComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [HomeComponent],
-      providers: [{ provide: GameInfoService, useValue: {'refreshGameInfo': () => {}}}],
-      schemas: [NO_ERRORS_SCHEMA]
+      providers: [
+        { provide: GameInfoService, useValue: { refreshGameInfo: () => {} } },
+      ],
+      schemas: [NO_ERRORS_SCHEMA],
     });
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;

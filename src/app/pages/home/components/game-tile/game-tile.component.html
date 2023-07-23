@@ -1,18 +1,25 @@
 <div>
-    <a [routerLink]="'/game/' + gameInfo.id" class="game-tile-a">
-        <div class="card custom-card rounded-0">
-            <img [src]="gameInfo.thumbnail" class="custom-card-img card-img-top rounded-0" alt="..." loading="lazy"/>
-            <div class="card-body card-body-bg d-flex flex-column">
-                <h5 class="card-title">{{gameInfo.title}}</h5>
-                <p class="card-text flex-grow-1 card-text-custom">
-                    {{ (gameInfo.short_description.length > 120) ? (gameInfo.short_description | slice:0:120) + '...': 
-                    (gameInfo.short_description) 
-                }}</p>
-                <div>
-                    <span class="badge bg-secondary ms-1">{{gameInfo.genre}}</span>
-                    <span class="badge bg-secondary ms-1">{{gameInfo.platform}}</span>
-                </div>
-            </div>
+  <a [routerLink]="'/game/' + gameInfo.id" class="game-tile-a">
+    <div class="card custom-card rounded-0">
+      <img
+        [src]="gameInfo.thumbnail"
+        class="custom-card-img card-img-top rounded-0"
+        alt="..."
+        loading="lazy" />
+      <div class="card-body card-body-bg d-flex flex-column">
+        <h5 class="card-title">{{ gameInfo.title }}</h5>
+        <p class="card-text flex-grow-1 card-text-custom">
+          {{
+            gameInfo.short_description.length > 120
+              ? (gameInfo.short_description | slice: 0 : 120) + '...'
+              : gameInfo.short_description
+          }}
+        </p>
+        <div>
+          <span class="badge bg-secondary ms-1">{{ gameInfo.genre }}</span>
+          <span class="badge bg-secondary ms-1">{{ gameInfo.platform }}</span>
         </div>
-    </a>
-</div> 
+      </div>
+    </div>
+  </a>
+</div>

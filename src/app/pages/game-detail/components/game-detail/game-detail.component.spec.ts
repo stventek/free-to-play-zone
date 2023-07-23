@@ -18,13 +18,21 @@ describe('GameDetailComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [GameDetailComponent],
-      imports: [FormsModule, ReactiveFormsModule, HttpClientModule, RouterTestingModule],
-      providers: [GameDetailService, {
-        provide: ActivatedRoute,
-        useValue: {
-          params: of({ id: '123' }),
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        RouterTestingModule,
+      ],
+      providers: [
+        GameDetailService,
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            params: of({ id: '123' }),
+          },
         },
-      }]
+      ],
     });
     fixture = TestBed.createComponent(GameDetailComponent);
     component = fixture.componentInstance;

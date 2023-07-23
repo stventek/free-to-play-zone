@@ -8,10 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
-  declarations: [
-    PagesComponent,
-    SearchComponent
-  ],
+  declarations: [PagesComponent, SearchComponent],
   imports: [
     CommonModule,
     HomeModule,
@@ -19,6 +16,6 @@ import { SearchComponent } from './components/search/search.component';
     PagesRoutingModule,
     ReactiveFormsModule,
   ],
-  exports: [PagesComponent]
+  exports: [PagesComponent],
 })
-export class PagesModule { }
+export class PagesModule {}

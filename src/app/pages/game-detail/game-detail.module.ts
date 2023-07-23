@@ -6,16 +6,9 @@ import { GameDetailComponent } from './components/game-detail/game-detail.compon
 import { GameDetailService } from './services/game-detail.service';
 
 @NgModule({
-  declarations: [
-  
-    GameDetailComponent
-  ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    RouterModule 
-  ],
+  declarations: [GameDetailComponent],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   exports: [GameDetailComponent],
-  providers: [GameDetailService]
+  providers: [GameDetailService],
 })
-export class GameDetailModule { }
+export class GameDetailModule {}
