@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { GameInfo } from '../models/game.interface';
+import { enviroment } from 'src/enviroments/enviroment';
 
 @Injectable()
 export class GameInfoService {
@@ -30,10 +31,10 @@ export class GameInfoService {
           }
       }
 
-      this.http.get<GameInfo[]>('https://free-to-play-games-database.p.rapidapi.com/api/games', {
+      this.http.get<GameInfo[]>(enviroment.apiBase + 'api/games', {
         headers: {
-        'X-RapidAPI-Key': 'c34e11ff9fmshad54035375d42a4p14e620jsn52c8f3275345',
-        'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+        'X-RapidAPI-Key': enviroment.xRapidAPIKey,
+        'X-RapidAPI-Host':  enviroment.xRapidAPIHost
         },
         params
       }).subscribe( gameInfo => {
