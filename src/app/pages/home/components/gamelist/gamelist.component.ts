@@ -21,7 +21,7 @@ export class GamelistComponent {
   onScroll(){
     const gameInfo = this.gameInfoService.gameInfoSource.getValue();
     if(gameInfo && gameInfo.length > this.batch + 15){
-      this.batch += 15;
+      this.batch += 20;
     }
   }
 }

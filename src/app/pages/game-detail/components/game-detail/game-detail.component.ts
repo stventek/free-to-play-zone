@@ -12,7 +12,7 @@ import { Observable, Subscription } from 'rxjs';
 export class GameDetailComponent {
   gameId!: string;
   gameDetail$: Observable<GameDetail | null>;
-  private routeSubscription!: Subscription;
+  routeSubscription!: Subscription;
 
   constructor(private gameDetailService: GameDetailService, private route: ActivatedRoute){
     this.gameDetail$ = this.gameDetailService.gameInfo$;

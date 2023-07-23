@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -11,7 +11,7 @@ export class PagesComponent {
   isGameDetailRoute: boolean = false;
   private routerSubscription!: Subscription;
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
     this.routerSubscription = this.router.events.subscribe(() => {
