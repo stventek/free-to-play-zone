@@ -8,6 +8,7 @@
       type="text"
       id="category"
       [ngbTypeahead]="search"
+      data-cy="category-input"
       class="custom-action-input form-control form-control-sm"
       formControlName="category" />
   </div>
@@ -16,6 +17,7 @@
     <select
       class="form-select form-select-sm custom-action-input"
       id="platform"
+      data-cy="platform-select"
       formControlName="platform">
       <option value="">Select a platform</option>
       <option value="pc">PC (Windows)</option>
@@ -23,7 +25,10 @@
     </select>
   </div>
   <div class="col-sm-12 col-md-auto mt-3 m-md-0">
-    <button type="submit" class="d-block filter-submit btn btn-sm btn-light">
+    <button
+      type="submit"
+      data-cy="submit-button"
+      class="d-block filter-submit btn btn-sm btn-light">
       FILTER
     </button>
   </div>
