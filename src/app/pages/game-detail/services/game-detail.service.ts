@@ -3,6 +3,7 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { GameDetail } from '../models/game-detail.interface';
+import { enviroment } from 'src/environments/environment';
 
 @Injectable()
 export class GameDetailService implements OnDestroy {
@@ -27,17 +28,13 @@ export class GameDetailService implements OnDestroy {
 
   refreshGameDetail(id: string) {
     this.httpSubscription = this.http
-      .get<GameDetail>(
-        'https://free-to-play-games-database.p.rapidapi.com/api/game',
-        {
-          headers: {
-            'X-RapidAPI-Key':
-              'c34e11ff9fmshad54035375d42a4p14e620jsn52c8f3275345',
-            'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com',
-          },
-          params: { id },
-        }
-      )
+      .get<GameDetail>(enviroment.apiBase + 'api/game', {
+        headers: {
+          'X-RapidAPI-Key': enviroment.xRapidAPIKey,
+          'X-RapidAPI-Host': enviroment.xRapidAPIHost,
+        },
+        params: { id },
+      })
       .subscribe(gameDetail => {
         this.setGameDetail(gameDetail);
       });

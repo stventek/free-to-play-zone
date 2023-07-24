@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { GameInfo } from '../models/game.interface';
-import { enviroment } from 'src/enviroments/enviroment';
+import { enviroment } from 'src/environments/environment';
 
 @Injectable()
 export class GameInfoService {
