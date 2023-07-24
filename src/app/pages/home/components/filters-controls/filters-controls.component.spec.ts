@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GameInfoService } from '../../services/games.service';
 import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbTypeahead, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('FiltersControlsComponent', () => {
   let component: FiltersControlsComponent;
@@ -18,9 +19,14 @@ describe('FiltersControlsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, ReactiveFormsModule, HttpClientModule],
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        NgbTypeaheadModule,
+      ],
       declarations: [FiltersControlsComponent],
-      providers: [GameInfoService],
+      providers: [GameInfoService, NgbTypeahead],
       schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
     fixture = TestBed.createComponent(FiltersControlsComponent);

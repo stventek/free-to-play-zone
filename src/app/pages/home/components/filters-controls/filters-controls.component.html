@@ -10,6 +10,9 @@
       [ngbTypeahead]="search"
       data-cy="category-input"
       class="custom-action-input form-control form-control-sm"
+      #instance="ngbTypeahead"
+      (focus)="focus$.next($any($event).target.value)"
+      (click)="click$.next($any($event).target.value)"
       formControlName="category" />
   </div>
   <div class="col-auto">

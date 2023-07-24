@@ -1,5 +1,6 @@
 <div *ngIf="gameDetail$ | async as gameDetail">
   <div
+    *ngIf="gameDetail.screenshots.length"
     class="bg-custom"
     [style.background-image]="'url(' + gameDetail.screenshots[0].image + ')'">
     <div class="c-grad"></div>
@@ -36,9 +37,12 @@
           class="img-thumbnail shadow" />
       </div>
     </div>
+    <div *ngIf="gameDetail.screenshots.length === 0">
+      <p>No screenshots available for this game.</p>
+    </div>
     <hr class="m-4" />
     <h4>Minimum System Requirements:</h4>
-    <ul>
+    <ul *ngIf="gameDetail.minimum_system_requirements; else noRequirements">
       <li>
         <strong>OS:</strong> {{ gameDetail.minimum_system_requirements.os }}
       </li>
@@ -59,6 +63,9 @@
         {{ gameDetail.minimum_system_requirements.storage }}
       </li>
     </ul>
+    <ng-template #noRequirements>
+      <p>Not available</p>
+    </ng-template>
     <hr class="m-4" />
     <p>
       <strong>Game URL: </strong>
