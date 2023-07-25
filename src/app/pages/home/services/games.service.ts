@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { GameInfo } from '../models/game.interface';
-import { enviroment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class GameInfoService {
@@ -30,10 +30,10 @@ export class GameInfoService {
     }
 
     this.http
-      .get<GameInfo[]>(enviroment.apiBase + 'api/games', {
+      .get<GameInfo[]>(environment.apiBase + 'api/games', {
         headers: {
-          'X-RapidAPI-Key': enviroment.xRapidAPIKey,
-          'X-RapidAPI-Host': enviroment.xRapidAPIHost,
+          'X-RapidAPI-Key': environment.xRapidAPIKey,
+          'X-RapidAPI-Host': environment.xRapidAPIHost,
         },
         params,
       })
