@@ -25,6 +25,20 @@
         <li><strong>Developer:</strong> {{ gameDetail.developer }}</li>
         <li><strong>Release Date:</strong> {{ gameDetail.release_date }}</li>
       </ul>
+      <a
+        class="btn btn-primary custom-button-link me-3"
+        [href]="gameDetail.game_url"
+        target="_blank"
+        role="button"
+        >Official site</a
+      >
+      <a
+        class="btn btn-secondary custom-button-link"
+        target="_blank"
+        [href]="gameDetail.freetogame_profile_url"
+        role="button"
+        >Details</a
+      >
       <hr class="m-4" />
       <h4>About {{ gameDetail.title }}</h4>
       <p>{{ gameDetail.description }}</p>
@@ -47,41 +61,36 @@
       <h4>Minimum System Requirements:</h4>
       <ul *ngIf="gameDetail.minimum_system_requirements; else noRequirements">
         <li>
-          <strong>OS:</strong> {{ gameDetail.minimum_system_requirements.os }}
+          <strong>OS:</strong>
+          {{ gameDetail.minimum_system_requirements.os || 'Not Available' }}
         </li>
         <li>
           <strong>Processor:</strong>
-          {{ gameDetail.minimum_system_requirements.processor }}
+          {{
+            gameDetail.minimum_system_requirements.processor || 'Not Available'
+          }}
         </li>
         <li>
           <strong>Memory:</strong>
-          {{ gameDetail.minimum_system_requirements.memory }}
+          {{ gameDetail.minimum_system_requirements.memory || 'Not Available' }}
         </li>
         <li>
           <strong>Graphics:</strong>
-          {{ gameDetail.minimum_system_requirements.graphics }}
+          {{
+            gameDetail.minimum_system_requirements.graphics || 'Not Available'
+          }}
         </li>
         <li>
           <strong>Storage:</strong>
-          {{ gameDetail.minimum_system_requirements.storage }}
+          {{
+            gameDetail.minimum_system_requirements.storage || 'Not Available'
+          }}
         </li>
       </ul>
       <ng-template #noRequirements>
         <p>Not available</p>
       </ng-template>
       <hr class="m-4" />
-      <p>
-        <strong>Game URL: </strong>
-        <a [href]="gameDetail.game_url" target="_blank">{{
-          gameDetail.title
-        }}</a>
-      </p>
-      <p>
-        <strong>FreeToGame Profile URL: </strong>
-        <a [href]="gameDetail.freetogame_profile_url" target="_blank"
-          >FreeToGame Profile</a
-        >
-      </p>
     </div>
   </div>
 </div>
