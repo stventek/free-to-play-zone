@@ -8,14 +8,14 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./pages.component.scss'],
 })
 export class PagesComponent implements OnInit, OnDestroy {
-  isGameDetailRoute = false;
+  isHome = false;
   private routerSubscription!: Subscription;
 
   constructor(public router: Router) {}
 
   ngOnInit(): void {
     this.routerSubscription = this.router.events.subscribe(() => {
-      this.isGameDetailRoute = this.router.url.startsWith('/game/');
+      this.isHome = this.router.url == '/';
     });
   }
 

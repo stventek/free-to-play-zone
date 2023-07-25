@@ -1,7 +1,7 @@
 <nav class="navbar bg-body-tertiary">
   <div class="container">
     <a class="navbar-brand" [routerLink]="'/'">F2P ZONE</a>
-    <div class="m-auto"><app-search *ngIf="!isGameDetailRoute" /></div>
+    <div class="m-auto"><app-search *ngIf="isHome" /></div>
   </div>
 </nav>
 <router-outlet></router-outlet>
