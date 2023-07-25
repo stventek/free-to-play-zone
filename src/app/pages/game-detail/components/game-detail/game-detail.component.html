@@ -46,12 +46,42 @@
       <h4>Screenshots:</h4>
       <div class="row">
         <div
+          (click)="onImgClick(gameDetail.screenshots, screenshot.id)"
           class="col-auto mb-3 image-container"
           *ngFor="let screenshot of gameDetail.screenshots">
           <img
             [src]="screenshot.image"
             alt="Screenshot"
             class="img-thumbnail shadow" />
+        </div>
+      </div>
+      <!--images modal-->
+      <div
+        class="modal fade"
+        data-show="true"
+        #modal
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div
+          class="modal-dialog modal-xl modal-dialog-centered modal-fullscreen-sm-down">
+          <div class="modal-content rounded-0">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Screenshots
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <app-screenshots-carousel
+                *ngIf="screenshots"
+                [screenshots]="screenshots" />
+            </div>
+          </div>
         </div>
       </div>
       <div *ngIf="gameDetail.screenshots.length === 0">

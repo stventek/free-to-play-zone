@@ -24,3 +24,8 @@ export interface GameDetail {
     image: string;
   }>;
 }
+
+export interface Screenshot {
+  id: number;
+  image: string;
+}
