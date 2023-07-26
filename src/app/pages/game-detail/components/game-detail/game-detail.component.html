@@ -48,6 +48,7 @@
         <div
           (click)="onImgClick(gameDetail.screenshots, screenshot.id)"
           class="col-auto mb-3 image-container"
+          role="button"
           *ngFor="let screenshot of gameDetail.screenshots">
           <img
             [src]="screenshot.image"

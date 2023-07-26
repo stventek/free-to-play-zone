@@ -1,32 +1,15 @@
-<div
-  id="carouselExample"
-  class="carousel slide carousel-dark carousel-fade h-100 d-flex align-items-center"
-  data-bs-touch="false">
-  <div class="carousel-inner">
-    <div
-      *ngFor="let screenshot of screenshots"
-      [class]="
-        screenshot.active
-          ? 'ratio ratio-16x9 carousel-item active'
-          : 'ratio ratio-16x9 carousel-item'
-      ">
-      <img [src]="screenshot.image" class="d-block" alt="..." />
+<ngb-carousel
+  class="carousel-fade h-100 d-flex align-items-center"
+  data-bs-touch="false"
+  activeId="active-screenshot"
+  [interval]="0"
+  #screenshotCarousel>
+  <ng-template
+    ngbSlide
+    *ngFor="let screenshot of screenshots"
+    [id]="screenshot.active ? 'active-screenshot' : screenshot.id.toString()">
+    <div class="picsum-img-wrapper ratio ratio-16x9">
+      <img [src]="screenshot.image" class="d-block" alt="screenshot image" />
     </div>
-  </div>
-  <button
-    class="carousel-control-prev"
-    type="button"
-    data-bs-target="#carouselExample"
-    data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button
-    class="carousel-control-next"
-    type="button"
-    data-bs-target="#carouselExample"
-    data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+  </ng-template>
+</ngb-carousel>
