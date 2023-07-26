@@ -1,14 +1,23 @@
 // shared.service.ts
 import { Injectable, OnDestroy } from '@angular/core';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import {
+  BehaviorSubject,
+  Subscription,
+  catchError,
+  tap,
+  throwError,
+} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { GameDetail } from '../models/game-detail.interface';
 import { environment } from 'src/environments/environment';
+import { ErrorResponse } from '../models/error.interface';
 
 @Injectable()
 export class GameDetailService implements OnDestroy {
   private gameDetailSource = new BehaviorSubject<GameDetail | null>(null);
+  private errorSource = new BehaviorSubject<ErrorResponse | null>(null);
   gameInfo$ = this.gameDetailSource.asObservable();
+  error$ = this.errorSource.asObservable();
 
   title: string | undefined;
   filters: any;
@@ -35,8 +44,15 @@ export class GameDetailService implements OnDestroy {
         },
         params: { id },
       })
-      .subscribe(gameDetail => {
-        this.setGameDetail(gameDetail);
-      });
+      .pipe(
+        tap(gameDetail => {
+          this.setGameDetail(gameDetail);
+        }),
+        catchError((error: ErrorResponse) => {
+          this.errorSource.next(error);
+          return throwError(() => error);
+        })
+      )
+      .subscribe();
   }
 }

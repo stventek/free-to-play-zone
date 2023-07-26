@@ -5,6 +5,7 @@ import { GameDetail, Screenshot } from '../../models/game-detail.interface';
 import { Observable, Subscription } from 'rxjs';
 import { Modal } from 'bootstrap';
 import { ScreeenshotData } from '../../types/screenshot-data.interface';
+import { ErrorResponse } from '../../models/error.interface';
 
 @Component({
   selector: 'app-game-detail',
@@ -14,6 +15,7 @@ import { ScreeenshotData } from '../../types/screenshot-data.interface';
 export class GameDetailComponent implements OnInit, OnDestroy {
   gameId!: string;
   gameDetail$: Observable<GameDetail | null>;
+  error$: Observable<ErrorResponse | null>;
   routeSubscription!: Subscription;
   screenshots: ScreeenshotData[] | undefined;
 
@@ -24,6 +26,7 @@ export class GameDetailComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute
   ) {
     this.gameDetail$ = this.gameDetailService.gameInfo$;
+    this.error$ = this.gameDetailService.error$;
   }
 
   onImgClick(screenshots: Screenshot[], selectedId: number) {

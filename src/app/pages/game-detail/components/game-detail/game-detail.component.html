@@ -1,4 +1,4 @@
-<div *ngIf="gameDetail$ | async as gameDetail; else loading">
+<div *ngIf="gameDetail$ | async as gameDetail; else loadingOrError">
   <div *ngIf="gameDetail">
     <div
       *ngIf="gameDetail.screenshots.length"
@@ -124,6 +124,13 @@
     </div>
   </div>
 </div>
+<ng-template #loadingOrError>
+  <div *ngIf="error$ | async as error; else loading">
+    <div class="mt-5 text-center">
+      <h1>404 - Game Not Found</h1>
+    </div>
+  </div>
+</ng-template>
 <ng-template #loading>
   <h1 class="text-center mt-5">Loading...</h1>
 </ng-template>
