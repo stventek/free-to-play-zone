@@ -1,6 +1,7 @@
 <div
   id="carouselExample"
-  class="carousel slide h-100 d-flex align-items-center">
+  class="carousel slide carousel-dark carousel-fade h-100 d-flex align-items-center"
+  data-bs-touch="false">
   <div class="carousel-inner">
     <div
       *ngFor="let screenshot of screenshots"
@@ -9,7 +10,7 @@
           ? 'ratio ratio-16x9 carousel-item active'
           : 'ratio ratio-16x9 carousel-item'
       ">
-      <img [src]="screenshot.image" class="" alt="..." />
+      <img [src]="screenshot.image" class="d-block" alt="..." />
     </div>
   </div>
   <button
